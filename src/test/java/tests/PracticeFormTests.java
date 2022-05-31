@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static com.codeborne.selenide.Selenide.open;
 
-public class PracticeForm {
+public class PracticeFormTests {
 
     @BeforeAll
     static void beforeAll() {
@@ -16,7 +16,7 @@ public class PracticeForm {
     }
 
     @Test
-    void successfulTest(){
+    void registerNewStudent(){
         System.out.println("Started first test");
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove()");
