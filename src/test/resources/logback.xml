@@ -9,4 +9,5 @@
     <root level="warn">
         <appender-ref ref="STDOUT"/>
     </root>
+    <logger name="tests" level="TRACE"/>
 </configuration>

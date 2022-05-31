@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTests {
@@ -17,7 +19,6 @@ public class PracticeFormTests {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
     }
 
     @Test
@@ -32,6 +33,7 @@ public class PracticeFormTests {
         String userEmail = "ivanov@email.com";
         String userNumber = "8123456789";
         String addresses = "Shanti Nagar, Model Town, Panipat, Haryana 132103";
+        String subject = "chemistry";
 
         // Заполняем форму
 
@@ -45,7 +47,7 @@ public class PracticeFormTests {
         $(".react-datepicker__month-select").selectOptionByValue("0");
         $(".react-datepicker__year-select").selectOptionByValue("1990");
         $("[aria-label=\"Choose Monday, January 1st, 1990\"]").click();
-        $("#subjectsInput").sendKeys("chemistry");
+        $("#subjectsInput").sendKeys(subject);
         $("#react-select-2-option-0").click();
         $("label[for=hobbies-checkbox-3]").click();
         $("[type=file]").uploadFile(new File("src/test/resources/cat.jpg"));
@@ -56,14 +58,16 @@ public class PracticeFormTests {
         $("#react-select-4-option-1").click();
         $("#submit").click();
 
+        //Проверяем, что регистрация прошла успешно:
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
 
 
+        $("tbody").shouldHave(text(firstName), text(lastName), text(userEmail),
+                text(userNumber), text("01 January,1990"), text("cat.jpg"), text("Male"),
+                text ("Music"), text(subject), text(addresses), text ("Haryana Panipat"));
+        $("#closeLargeModal").click();
 
-
-
-
-
-
+        logger.info("Congratulations! Test is successful!");
 
     }
 }
