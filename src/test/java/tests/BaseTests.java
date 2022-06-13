@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.PracticeFormPage;
-import pages.components.ResultsTableComponent;
 
 public class BaseTests {
     protected static final Logger logger = LoggerFactory.getLogger(PracticeFormPageObjectTests.class);

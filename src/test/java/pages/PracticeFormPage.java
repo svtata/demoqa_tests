@@ -67,7 +67,7 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage downloadFile(String value) {
+    public PracticeFormPage uploadImage(String value) {
         $("[type=file]").uploadFromClasspath(value);
         return this;
     }
