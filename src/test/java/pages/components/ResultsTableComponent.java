@@ -11,7 +11,7 @@ public class ResultsTableComponent {
     }
 
     public ResultsTableComponent checkTitleTable(String value){
-        $("#example-modal-sizes-title-lg").shouldHave(text(value));
+        $(".modal-header").shouldHave(text(value));
         return this;
     }
 }
