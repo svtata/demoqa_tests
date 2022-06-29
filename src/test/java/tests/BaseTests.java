@@ -2,9 +2,11 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.PracticeFormPage;
+import utils.RandomUtils;
 
 public class BaseTests {
     protected static final Logger logger = LoggerFactory.getLogger(PracticeFormPageObjectTests.class);
@@ -16,5 +18,5 @@ public class BaseTests {
     }
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
-
+    TestData testdata = new TestData();
 }
